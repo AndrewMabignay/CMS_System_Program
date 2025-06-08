@@ -1,0 +1,161 @@
+<x-layout>
+	<section class="user-management-section">
+		<h1>User Management</h1>
+
+		<div class="user-management-container">
+			
+			{{-- SEARCH | ADD | REFRESH --}}
+			<div class="search-add-refresh-container">
+				<h2>List of Users</h2>
+
+				<button>
+					
+				</button>
+
+				<button>
+					
+				</button>
+			</div>
+
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Username</th>
+							<th>Email</th>
+							<th>Role</th>
+							<th>Status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach ($users as $user)
+							<tr>
+								<td>{{ $user->name }}</td>
+								<td>{{ $user->username }}</td>
+								<td>{{ $user->email }}</td>
+								<td>{{ ucfirst($user->role) }}</td>
+								<td>{{ ucfirst($user->status) }}</td>
+								<td>
+									<button id="editUserButton"
+										data-id="{{ $user->id }}"
+										data-name="{{ $user->name }}"
+										data-username="{{ $user->username }}"
+										data-email="{{ $user->email }}"
+										data-role="{{ $user->role }}"
+										data-status="{{ $user->status }}"
+									>
+										Edit
+									</button>
+								</td>
+							</tr>
+
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		{{-- ADD USER --}}
+		<div class="add-user-container">
+
+			{{-- NAME --}}
+			<div class="input-container">
+				<label for="name">Full Name</label>
+				<input type="text" name="name" id="name">
+			</div>
+
+			{{-- USERNAME --}}
+			<div class="input-container">
+				<label for="username">Username</label>
+				<input type="text" name="username" id="username">
+			</div>
+
+			{{-- EMAIL --}}
+			<div class="input-container">
+				<label for="email">Email</label>
+				<input type="text" name="email" id="email">
+			</div>
+
+			{{-- PASSWORD --}}
+			<div class="input-container">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password">
+			</div>
+
+			{{-- ROLE --}}
+			<div class="input-container">
+				<label for="role">Role</label>
+				<select name="role" id="role">
+					<option value="admin">Admin</option>
+					<option value="author">Author</option>
+					<option value="editor">Editor</option>
+				</select>
+			</div>
+
+			{{-- STATUS --}}
+			<div class="input-container">
+				<label for="status">Status</label>
+				<select name="status" id="status">
+					<option value="inactive">Inactive</option>
+					<option value="active">Active</option>
+					<option value="banned">Banned</option>
+				</select>
+			</div>
+
+			<button id="addUser">Add User</button>
+		</div>
+
+		{{-- EDIT USER --}}
+		<div class="edit-user-container">
+			<input type="hidden" id="editUserId">
+
+			{{-- NAME --}}
+			<div class="input-container">
+				<label for="name">Full Name</label>
+				<input type="text" name="name" id="editName">
+			</div>
+
+			{{-- USERNAME --}}
+			<div class="input-container">
+				<label for="username">Username</label>
+				<input type="text" name="username" id="editUsername">
+			</div>
+
+			{{-- EMAIL --}}
+			<div class="input-container">
+				<label for="email">Email</label>
+				<input type="text" name="email" id="editEmail">
+			</div>
+
+			{{-- PASSWORD --}}
+			<div class="input-container">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="editPassword">
+			</div>
+
+			{{-- ROLE --}}
+			<div class="input-container">
+				<label for="role">Role</label>
+				<select name="role" id="editRole">
+					<option value="admin">Admin</option>
+					<option value="author">Author</option>
+					<option value="editor">Editor</option>
+				</select>
+			</div>
+
+			{{-- STATUS --}}
+			<div class="input-container">
+				<label for="status">Status</label>
+				<select name="status" id="editStatus">
+					<option value="inactive">Inactive</option>
+					<option value="active">Active</option>
+					<option value="banned">Banned</option>
+				</select>
+			</div>
+
+			<button id="saveEditUser">Update User</button>
+		</div>
+	</section>
+</x-layout>
