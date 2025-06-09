@@ -5,7 +5,7 @@
 				<div class="icon-container">
 					<i class="fas fa-user"></i>	
 				</div>
-				Hi admin [admin]
+				Hi {{ Auth::user()->name }} [{{ Auth::user()->role }}]
 			</div>
 		</li>
 
@@ -84,5 +84,15 @@
 				</a>
 			</li>
 		</ul>
+		<form action="{{ route('auth.user.logout') }}" method="POST">
+			@csrf
+
+			<button type="submit">
+				<div class="icon-container">
+					<i class="fas fa-sign-out-alt"></i> 	
+				</div>
+				Logout
+			</button>
+		</form>
 	</div>
 </nav>

@@ -20,20 +20,29 @@ class UserController extends Controller
             'name' => 'required',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
             'role' => 'required',
             'status' => 'required',
         ]);
 
-        $validated['password'] = hash('sha256', $validated['password']);
+        $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
 
         return response()->json($user);
     }
 
-    public function edit()
+    public function update(Request $request, $id)
     {
-        
+        // validate at update logic dito...
+
+        if ($request->ajax()) {
+            return response()->json([
+                'message' => 'User updated successfully',
+                // iba pang data kung gusto mo
+            ]);
+        }
     }
+
+
 }

@@ -51,6 +51,12 @@
 					<input type="password" id="password" placeholder="Enter your password">
 				</div>
 
+				{{-- PASSWORD CONFIRMATION --}}
+				<div class="input-container">
+					<label for="password_confirmation">Confirm Password</label>
+					<input type="password" name="password_confirmation" id="password_confirming" placeholder="Enter your password">
+				</div>
+
 				{{-- ROLE --}}
 				<div class="input-container">
 					<label for="role">Role</label>
@@ -131,6 +137,7 @@
 			let username = $('#username').val();
 			let email = $('#email').val();
 			let password = $('#password').val();
+			let password_confirmation = $('#password_confirming').val();
 			let role = $('#role').val();
 			let status = $('#status').val();
 
@@ -142,6 +149,7 @@
 					username: username,
 					email: email,
 					password: password,
+					password_confirmation: password_confirmation,
 					role: role,
 					status: status,
 					_token: $('meta[name="csrf-token"]').attr('content')
@@ -196,6 +204,41 @@
 				$('.add-user-container').removeClass('add-user-container-hidden');
 			});
 		});
+
+$(document).on('click', '#saveEditUser', function(e) {
+  e.preventDefault();
+
+  let id = $('#editUserId').val();
+  let name = $('#editName').val();
+  let username = $('#editUsername').val();
+  let email = $('#editEmail').val();
+  let password = $('#editPassword').val();
+  let password_confirmation = $('#editPasswordConfirm').val();
+  let role = $('#editRole').val();
+  let status = $('#editStatus').val();
+
+  // Disable button habang nag-proccess
+  $('#saveEditUser').prop('disabled', true).text('Updating...');
+
+  $.ajax({
+    url: '/users/' + id,
+    method: 'PUT', // or PATCH depende sa backend
+    data: {
+      name: name,
+      username: username,
+      _token: $('meta[name="csrf-token"]').attr('content')
+    },
+    success: function(response) {
+      alert('User updated successfully!');
+    },
+    error: function(xhr) {
+      alert('Error: ' + (xhr.responseJSON?.message || 'Something went wrong.'));
+      {{-- $('#saveEditUser').prop('disabled', false).text('Update User'); --}}
+    }
+  });
+});
+
+
 	</script>
 </body>
 </html>

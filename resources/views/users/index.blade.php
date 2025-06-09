@@ -92,6 +92,12 @@
 				<input type="password" name="password" id="editPassword">
 			</div>
 
+			{{-- PASSWORD CONFIRMATION --}}
+			<div class="input-container">
+				<label for="password_confirmation">Confirm Password</label>
+				<input type="password" name="password_confirmation" id="editPasswordConfirm">
+			</div>
+
 			{{-- ROLE --}}
 			<div class="input-container">
 				<label for="role">Role</label>
