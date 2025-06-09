@@ -1,24 +1,31 @@
 <x-layout>
 	<section class="user-management-section">
-		<h1>User Management</h1>
-
-		<div class="user-management-container">
+		<div class="user-management-container flex flex-col gap-[20px]">
 			
 			{{-- SEARCH | ADD | REFRESH --}}
-			<div class="search-add-refresh-container">
-				<h2>List of Users</h2>
+			<div class="search-add-refresh-container h-[60px] flex flex-col items-center">
+				<h2 class="w-full px-[30px]">User Management</h2>
 
-				<button>
-					
-				</button>
+				<div class="button-container bg-white w-full">
+					<div class="search-container">
+						<input type="" name="">
+						<button>
+							
+						</button>
+					</div>
 
-				<button>
-					
-				</button>
+					<button id="addUserButton">
+						<i class="fas fa-plus"></i>
+					</button>
+
+					<button>
+						<i class="fas fa-sync-alt"></i>
+					</button>
+				</div>
 			</div>
 
 			<div class="table-wrapper">
-				<table>
+				<table class="w-full px-[20px] border-seperate rounded-[8px] text-center">
 					<thead>
 						<tr>
 							<th>Name</th>
@@ -55,56 +62,6 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
-
-		{{-- ADD USER --}}
-		<div class="add-user-container">
-
-			{{-- NAME --}}
-			<div class="input-container">
-				<label for="name">Full Name</label>
-				<input type="text" name="name" id="name">
-			</div>
-
-			{{-- USERNAME --}}
-			<div class="input-container">
-				<label for="username">Username</label>
-				<input type="text" name="username" id="username">
-			</div>
-
-			{{-- EMAIL --}}
-			<div class="input-container">
-				<label for="email">Email</label>
-				<input type="text" name="email" id="email">
-			</div>
-
-			{{-- PASSWORD --}}
-			<div class="input-container">
-				<label for="password">Password</label>
-				<input type="password" name="password" id="password">
-			</div>
-
-			{{-- ROLE --}}
-			<div class="input-container">
-				<label for="role">Role</label>
-				<select name="role" id="role">
-					<option value="admin">Admin</option>
-					<option value="author">Author</option>
-					<option value="editor">Editor</option>
-				</select>
-			</div>
-
-			{{-- STATUS --}}
-			<div class="input-container">
-				<label for="status">Status</label>
-				<select name="status" id="status">
-					<option value="inactive">Inactive</option>
-					<option value="active">Active</option>
-					<option value="banned">Banned</option>
-				</select>
-			</div>
-
-			<button id="addUser">Add User</button>
 		</div>
 
 		{{-- EDIT USER --}}
