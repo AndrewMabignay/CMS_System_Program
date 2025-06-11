@@ -17,6 +17,9 @@
 		{{ $slot }}
 	</main>
 
+	<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
 	<script type="text/template" id="addUserTemplate">
 		<div class="overlay"></div>
 		{{-- ADD USER --}}
@@ -124,7 +127,10 @@
 	</script>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{ asset('js/category.js') }}"></script>
 	<script>
+		
+
 		{{-- ADD USER --}}
 		// ADD USER - Event Delegation
 		$(document).on('click', '#addUser', function(e) {

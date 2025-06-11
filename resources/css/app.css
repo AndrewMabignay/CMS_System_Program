@@ -20,6 +20,11 @@
     --tertiary-color: #B8CFCE;
     --quaternary-color: #EAEFEF;
     --quinary-color: #F5FAFE;
+
+    --primary-color: #1f202b;	
+    --secondary-color: #E2E8F0;
+    --tertiary-color: #F1F5F9;
+    --tertiary-color-one: #F8FAFC;  
 }
 
 body {
@@ -104,6 +109,241 @@ nav {
     }
 
     .add-user-container {
+        @apply
+             bg-[var(--quaternary-color)] 
+             p-[25px]
+             fixed 
+             top-1/2 
+             left-1/2 
+             transform -translate-x-1/2
+             translate-y-full
+             opacity-0
+             transition-transform
+             transition-opacity
+             duration-300
+             ease-in-out
+
+             z-100 
+             shadow
+             rounded-[8px]
+             flex
+             flex-col
+             gap-[30px];        
+
+         h3 {
+            @apply
+                text-[16px]
+                tracking-wider
+                font-semibold
+                flex
+                items-center
+                gap-[8px];
+         }     
+
+         .input-list-container {
+            @apply
+                grid 
+                grid-cols-2 
+                gap-[30px];
+
+
+            .input-container {
+                @apply
+                    text-[15px]
+                    flex
+                    flex-col
+                    gap-[10px];
+
+                input, select {
+                    @apply
+                        h-[40px]
+                        w-[200px]
+                        px-[12px]
+                        text-[12px]
+                        border
+                        border-[var(--primary-color)]
+                        border-1
+                        rounded-lg
+                        appearance-none;
+                }
+
+            }
+         }
+
+         .add-button-container {
+            @apply
+                pt-[10px]
+                flex
+                justify-between;
+
+            button {
+                @apply
+                    text-[13px]
+                    flex
+                    justify-center
+                    items-center
+                    gap-[8px];
+            }
+
+            #cancelAddUser {
+                @apply
+                    px-[20px]
+                    py-[6px]
+                    border
+                    border-[var(--primary-color)]
+                    border-2
+                    rounded-lg;
+            }
+
+            #addUser {
+                @apply
+                    px-[20px]
+                    py-[6px]
+                    bg-[var(--primary-color)]
+                    text-[var(--quaternary-color)]
+                    border
+                    border-[var(--primary-color)]
+                    border-2
+                    rounded-lg;
+            }
+         }
+    }
+
+    .add-user-container-active {
+        @apply 
+            -translate-y-1/2 
+            opacity-100;
+    }
+}
+
+
+
+
+
+/* CATEGORY */
+.category-section {
+    .overlay {
+        @apply 
+            bg-black/70 
+            fixed 
+            top-0 
+            left-0 
+            right-0 
+            bottom-0 
+            z-99;
+    }
+
+    .add-user-container {
+        @apply
+             bg-[var(--quaternary-color)] 
+             p-[25px]
+             fixed 
+             top-1/2 
+             left-1/2 
+             transform -translate-x-1/2
+             translate-y-full
+             opacity-0
+             transition-transform
+             transition-opacity
+             duration-300
+             ease-in-out
+
+             z-100 
+             shadow
+             rounded-[8px]
+             flex
+             flex-col
+             gap-[30px];        
+
+         h3 {
+            @apply
+                text-[16px]
+                tracking-wider
+                font-semibold
+                flex
+                items-center
+                gap-[8px];
+         }     
+
+         .input-list-container {
+            @apply
+                grid 
+                grid-cols-2 
+                gap-[30px];
+
+
+            .input-container {
+                @apply
+                    text-[15px]
+                    flex
+                    flex-col
+                    gap-[10px];
+
+                input, select {
+                    @apply
+                        h-[40px]
+                        w-[200px]
+                        px-[12px]
+                        text-[12px]
+                        border
+                        border-[var(--primary-color)]
+                        border-1
+                        rounded-lg
+                        appearance-none;
+                }
+
+            }
+         }
+
+         .add-button-container {
+            @apply
+                pt-[10px]
+                flex
+                justify-between;
+
+            button {
+                @apply
+                    text-[13px]
+                    flex
+                    justify-center
+                    items-center
+                    gap-[8px];
+            }
+
+            #cancelAddUser {
+                @apply
+                    px-[20px]
+                    py-[6px]
+                    border
+                    border-[var(--primary-color)]
+                    border-2
+                    rounded-lg;
+            }
+
+            #addUser {
+                @apply
+                    px-[20px]
+                    py-[6px]
+                    bg-[var(--primary-color)]
+                    text-[var(--quaternary-color)]
+                    border
+                    border-[var(--primary-color)]
+                    border-2
+                    rounded-lg;
+            }
+         }
+    }
+
+    .add-user-container-active {
+        @apply 
+            -translate-y-1/2 
+            opacity-100;
+    }
+}
+
+/* POST SECTION */
+.post-section {
+    .add-post-container {
         @apply
              bg-[var(--quaternary-color)] 
              p-[25px]
